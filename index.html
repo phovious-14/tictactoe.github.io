@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Tic Tac Toe</h1>
+
+    <div class="container">
+        <div class="row-1">
+            <button class="box-1"></button>
+            <button class="box-2"></button>
+            <button class="box-3"></button>
+        </div>
+        <div class="row-2">
+            <button class="box-4"></button>
+            <button class="box-5"></button>
+            <button class="box-6"></button>
+        </div>
+        <div class="row-3">
+            <button class="box-7"></button>
+            <button class="box-8"></button>
+            <button class="box-9"></button>
+        </div>
+    </div>
+
+    <script>
+
+        var flag = 0;
+        var globeChecked = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
+
+        var box1 = document.querySelector('.box-1').innerText;
+        var box2 = document.querySelector('.box-2').innerText;
+        var box3 = document.querySelector('.box-3').innerText;
+        var box4 = document.querySelector('.box-4').innerText;
+        var box5 = document.querySelector('.box-5').innerText;
+        var box6 = document.querySelector('.box-6').innerText;
+        var box7 = document.querySelector('.box-7').innerText;
+        var box8 = document.querySelector('.box-8').innerText;
+        var box9 = document.querySelector('.box-9').innerText;
+
+        const algotihm = (sign) => {
+            
+            if(sign == "X") {
+                if((box1 == "X" && box2 == "X" && box3 == "X") || (box4 == "X" && box5 == "X" && box6 == "X") || (box7 == "X" && box8 == "X" && box9 == "X") || (box1 == "X" && box4 == "X" && box7 == "X") || (box2 == "X" && box5 == "X" && box8 == "X") || (box3 == "X" && box6 == "X" && box9 == "X") || (box1 == "X" && box5 == "X" && box9 == "X") || (box3 == "X" && box5 == "X" && box7 == "X")) {
+                    setTimeout(() => {                        
+                        confirm("Player X wins, Want to play again?") == true ? location.reload() : location.reload();
+                    }, 300);
+                }
+                console.log("hi");
+            }
+            else{
+                if((box1 == "O" && box2 == "O" && box3 == "O") || (box4 == "O" && box5 == "O" && box6 == "O") || (box7 == "O" && box8 == "O" && box9 == "O") || (box1 == "O" && box4 == "O" && box7 == "O") || (box2 == "O" && box5 == "O" && box8 == "O") || (box3 == "O" && box6 == "O" && box9 == "O") || (box1 == "O" && box5 == "O" && box9 == "O") || (box3 == "O" && box5 == "O" && box7 == "O")) {
+                    setTimeout(() => {
+                        confirm("Player O wins, Want to play again?") == true ? location.reload() : location.reload();
+                    }, 300);
+                }
+            }
+
+            if(box1 && box2 && box3 && box4 && box5 && box6 && box7 && box8 && box9) {
+                setTimeout(() => {
+                    confirm("Draw, Want to play again?") == true ? location.reload() : location.reload();
+                }, 300);
+            }
+        }
+        
+        addEventListener('click', function(e) {
+            if (e.target.classList.contains('box-1') && globeChecked[0] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box1 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box1 = 'X';
+                    flag = 0;
+                }
+                algotihm(box1);
+                globeChecked[0] = 1;
+            }
+            if (e.target.classList.contains('box-2') && globeChecked[1] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box2 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box2 = 'X';
+                    flag = 0;
+                }
+                algotihm(box2);
+                globeChecked[1] = 1;
+            }
+            if (e.target.classList.contains('box-3') && globeChecked[2] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box3 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box3 = 'X';
+                    flag = 0;
+                }
+                algotihm(box3);
+                globeChecked[2] = 1;
+            }
+            if (e.target.classList.contains('box-4') && globeChecked[3] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box4 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box4 = 'X';
+                    flag = 0;
+                }
+                algotihm(box4);
+                globeChecked[3] = 1;
+            }
+            if (e.target.classList.contains('box-5') && globeChecked[4] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box5 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box5 = 'X';
+                    flag = 0;
+                }
+                algotihm(box5);
+                globeChecked[4] = 1;
+            }
+            if (e.target.classList.contains('box-6') && globeChecked[5] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box6 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box6 = 'X';
+                    flag = 0;
+                }
+                algotihm(box6);
+                globeChecked[5] = 1;
+            }
+            if (e.target.classList.contains('box-7') && globeChecked[6] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box7 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box7 = 'X';
+                    flag = 0;
+                }
+                algotihm(box7);
+                globeChecked[6] = 1;
+            }
+            if (e.target.classList.contains('box-8') && globeChecked[7] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box8 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box8 = 'X';
+                    flag = 0;
+                }
+                algotihm(box8);
+                globeChecked[7] = 1;
+            }
+            if (e.target.classList.contains('box-9') && globeChecked[8] == 0) {
+                if(flag == 0){
+                    e.target.innerText = "O";
+                    box9 = 'O';
+                    flag = 1;
+                }    
+                else{
+                    e.target.innerText = "X";
+                    box9 = 'X';
+                    flag = 0;
+                }
+                algotihm(box9);
+                globeChecked[8] = 1;
+            }
+        });
+
+    </script>
+    
+</body>
+</html>
